@@ -38,7 +38,7 @@
 */
 
 html, .view body {
-  background: #333333 url(../../images/gray-noise.png) repeat;
+  background: #333333 url(images/gray-noise.png) repeat;
   counter-reset: slideidx;
   font-family: 'Lato', 'Yanone Kaffeesatz', 'Alegreya Sans', sans-serif;
 }
@@ -79,7 +79,7 @@ section:not(.title) {
 }
 
 section.title {
-  background-image: url(../../../images/logo.png);
+  background-image: url(images/logo.png);
   background-repeat: no-repeat;
   background-position: 5% 66%;
 }
