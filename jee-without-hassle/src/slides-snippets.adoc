@@ -335,6 +335,11 @@ image::geek_poke_layers.jpeg[caption="Layers. Onions have layers...", role="fram
 * Can it be done easier? more robust?
 ====
 
+== !
+
+image::using-a-framework-to-write-a-very-small-app.gif[caption="Using a framework to write a small app", role="frame"]
+
+
 [.topic]
 == More robust?
 

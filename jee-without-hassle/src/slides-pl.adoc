@@ -269,6 +269,10 @@ Czyli w *porządku?*
 * Zatem można łatwiej. Można!
 ====
 
+== !
+
+image::using-a-framework-to-write-a-very-small-app.gif[caption="Using a framework to write a small app", role="frame"]
+
 [.topic]
 == Można łatwiej?
 

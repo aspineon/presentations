@@ -1,1 +1,1 @@
-include 'microservice-everything', 'characterization-tests'
+include 'microservice-everything', 'characterization-tests', 'jee-without-hassle'
