@@ -54,11 +54,11 @@ If you can't - business as usual +
 * At the begining it looked very simple
 ====
 
-== \\
+== !
 
 image::commitstrip.jpg[role="frame"]
 
-== \\
+== !
 
 * HR System
 
@@ -67,7 +67,7 @@ image::commitstrip.jpg[role="frame"]
 2600 JSP files +
 700k lines of code of JSP files
 
-== \\
+== !
 
 [.pull-right]
 * Project mgmt
@@ -77,7 +77,7 @@ Noone cared about it since 2007 +
 Ruby 1.8 + Rail 1.2 +
 Migrating to Ruby 2.0 and Rails 3.2
 
-== \\
+== !
 
 [ditaa]
 ....
@@ -186,7 +186,7 @@ System.out.println();
 ====
 
 
-== \\
+== !
 
 [.small.quote, Michael Feathers, Working Effectively with Legacy Code]
 ____
@@ -385,7 +385,7 @@ line: <3>, expected:<something> but was:<something else>
   at com.example.BusinessClassTest.should_create_master_output_file
 ----
 
-== \\
+== !
 
 [.pull-right]
 How I felt +
@@ -393,7 +393,7 @@ How I felt +
 
 image::doogie1.jpg[role="frame"]
 
-== \\
+== !
 
 [.pull-right]
 How I felt +

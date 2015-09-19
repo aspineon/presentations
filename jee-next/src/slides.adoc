@@ -16,7 +16,7 @@ Kuba Marchwicki ; @kubem
 :idseparator: -
 :icons: font
 
-== \\
+== !
 
 ====
 [quote, Antoine de Saint-Exupery]
@@ -54,7 +54,7 @@ image::05-jee7-deep-dive.png[JEE7, 600, role="middle"]
 == JEE7 deep dive
 image::06-jee7-deep-dive.png[JEE7, 600, role="middle"]
 
-== \\
+== !
 
 image::07-whats-all-about.png[caption="What's it all about?", role="stretch-x"]
 
@@ -274,7 +274,7 @@ Not much changed - no casting
 
 ====
 
-== \\  
+== !  
 
 image::17-jms.png[width=600, role="middle"]
 
@@ -1187,7 +1187,7 @@ Opowiedzieć o ilości boilerplate code. Wszystko objęte jest transakcja
 * Batch Applications
 * *Concurrency Utilities*
 
-== \\
+== !
 
 
 ====
@@ -1291,7 +1291,7 @@ public class ProcessingService {
 }
 ----
 
-== \\ 98 percent business logic
+== ! 98 percent business logic
 image::66-jee7.png[width="600", role="middle"]
 
 [.topic]
@@ -1313,7 +1313,7 @@ push it:: Become a part of the community. Push your changes and help others
 * More JSP (+ templates), less JSF
 * no more EARs (??)
 
-== \\ questions
+== ! questions
 image::68-questions.jpg[caption="Questions?", crole="invert", role="stretch-x"]
 
 [.topic]

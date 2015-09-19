@@ -16,7 +16,7 @@ Jakub Marchwicki ; @kubem
 :idseparator: -
 :icons: font
 
-== \\
+== !
 image::05-comments.png[width=500]
 
 [NOTE]
@@ -32,7 +32,7 @@ image::05-comments.png[width=500]
 ** At least that's what I tought when I looked back my old code
 ====
 
-== \\
+== !
 image::06-comments-woohoo.png[width=573]
 
 [NOTE]
@@ -43,7 +43,7 @@ image::06-comments-woohoo.png[width=573]
 ** or looked up Guava (called Google Collections at that time)
 ====
 
-== \\
+== !
 image::07-wtfs.jpg[caption="The Team Building Activity", role="frame"]
 
 [NOTE]
@@ -55,7 +55,7 @@ image::07-wtfs.jpg[caption="The Team Building Activity", role="frame"]
 * I think I can always smell the crappy code.
 ====
 
-== \\
+== !
 image::07a-kalkulator.png[caption="The Refactoring Kata", role="frame"]
 
 [NOTE]
@@ -89,7 +89,7 @@ Make stuff simple but not simplistic::
 ** Or complex vs complicated.
 ====
 
-== \\
+== !
 image::07-clean-code.jpg[caption="", role="stretch-x"]
 
 [NOTE]
@@ -101,7 +101,7 @@ image::07-clean-code.jpg[caption="", role="stretch-x"]
 * Bo jak nie zna – to reszta prezentacji może być trudna do przełknięcie ;-)
 ====
 
-== \\
+== !
 image::10-uncle-bob.jpg[caption="Have you met Uncle Bob?", role="frame"]
 
 [NOTE]
@@ -120,7 +120,7 @@ image::10-uncle-bob.jpg[caption="Have you met Uncle Bob?", role="frame"]
 * Name variables in such and such way
 
 [.source]
-== \\
+== !
 
 [source, java]
 ----
@@ -146,7 +146,7 @@ public static String parse_pliterki(String old_s) {
 * Use comments when suitable and valuable
 
 [.source]
-== \\
+== !
 
 [source, java]
 ----
@@ -172,7 +172,7 @@ public class Customer {
 * Split functions, decompose
 
 [.source]
-== \\
+== !
 
 [source, csharp]
 ----
@@ -211,7 +211,7 @@ class Student
 * Use abstractions, symmetry, law of Demeter
 
 [.source]
-== \\
+== !
 
 [source, java]
 ----
@@ -237,7 +237,7 @@ TextView v = (TextView)
 * Test, test, test. Red - green - …
 
 [.source]
-== \\
+== !
 
 [source, java]
 ----
@@ -249,7 +249,7 @@ public class ExampleTest {
 }
 ----
 
-== \\
+== !
 image::15-like-a-boss.jpg[caption="The SOLID programmer", role="frame"]
 
 [NOTE]
@@ -267,7 +267,7 @@ image::15-like-a-boss.jpg[caption="The SOLID programmer", role="frame"]
 * I realized clean code wasn't on it's own. It was a result. *Not the cause*
 ====
 
-== \\
+== !
 image::11-kent-beck.jpg[caption="The Sourcerer", role="frame"]
 
 [NOTE]
@@ -280,7 +280,7 @@ image::11-kent-beck.jpg[caption="The Sourcerer", role="frame"]
 ** what the implementation was really about
 ====
 
-== \\
+== !
 image::11a-implementation-patterns.jpg[caption="", role="strech-x"]
 
 
@@ -318,14 +318,14 @@ minimize repetition
 Symmetry::
 Keep the same level of abstraction
 
-== \\
+== !
 
 [.small.quote, Grady Booch, Object-Oriented Analysis and Design with Applications]
 ____
 Clean code is simple and direct. Clean code reads like well-written prose. Clean code never obscures the designers’ intent but rather is full of crisp abstractions and straightforward lines of control.
 ____
 
-== \\
+== !
 image::12-loctus.jpg[caption="The Borg", role="frame"]
 
 [NOTE]
@@ -334,13 +334,13 @@ image::12-loctus.jpg[caption="The Borg", role="frame"]
 * Still we ask ourselves a question why are we doing that?
 ====
 
-== \\
+== !
 image::19-on.jpg[caption="prettiness", role="frame"]
 
-== \\
+== !
 image::19-krzeslo.jpg[caption="aesthetics", role="frame"]
 
-== \\
+== !
 image::19-syrena.jpg[caption="design", role="frame"]
 
 [NOTE]
@@ -353,7 +353,7 @@ image::19-syrena.jpg[caption="design", role="frame"]
 ** I'll get there
 ====
 
-== \\
+== !
 
 [quote, Trisha Gee (@trisha_gee), #JFokus (4   February 2014)]
 ____
@@ -389,7 +389,7 @@ ____
 ====
 
 [.source]
-== \\
+== !
 
 [source, javascript]
 ----
@@ -416,14 +416,14 @@ function vyd_vse2(reg_id) {
 }
 ----
 
-== \\
+== !
 
 [quote, The Expert Beginner (@ExpertBeginner1), 19 November 2013]
 ____
 What's up with all of the long method names these days? So much typing. Good method names read like teenager text messages.
 ____
 
-== \\
+== !
 
 Contrast:: grabs attention, relative importance
 
@@ -436,40 +436,40 @@ Contrast:: grabs attention, relative importance
 ** He tackled each and every line of code with lot of
 ====
 
-== \\
+== !
 image::16-contrast.png[role="frame"]
 
-== \\
+== !
 
 Contrast:: grabs attention, relative importance
 Repetition:: attach meaning to the new element
 
-== \\
+== !
 image::16-repetition.png[role="frame"]
 
 
-== \\
+== !
 
 Contrast:: grabs attention, relative importance
 Repetition:: attach meaning to the new element
 Alignment:: Keeping same things together
 
-== \\
+== !
 image::16-alignment.png[role="frame noframe"]
 
 
-== \\
+== !
 
 Contrast:: grabs attention, relative importance
 Repetition:: attach meaning to the new element
 Alignment:: Keeping same things together
 Proximity:: not very far away from each other
 
-== \\
+== !
 image::16-proximity.png[role="frame"]
 
 [.source]
-== \\
+== !
 
 [source, java]
 ----
@@ -501,7 +501,7 @@ piece of *CRAP* design
 * The mem was coming from somewhere, from some studies and researches
 ====
 
-== \\
+== !
 image::20-pudelko.jpg[caption="Let's talk design, like real design", role="stretch-x"]
 
 [NOTE]
@@ -524,7 +524,7 @@ a *quality* of an *object*, which *allows* an individual *to perform an action*.
 ____
 ====
 
-== \\
+== !
 image::21-affordance.jpg[caption="affordance for dummies", role="frame"]
 
 [NOTE]
@@ -536,7 +536,7 @@ image::21-affordance.jpg[caption="affordance for dummies", role="frame"]
 * Ma swoją naturę która sugeruje nam pewne konkretne akcje które możemy wykonać. To się nazywa signifierami.
 ====
 
-== \\
+== !
 image::21-design-of-everyday-things.jpg[caption="", role="stretch-x"]
 
 [NOTE]
@@ -550,7 +550,7 @@ image::21-design-of-everyday-things.jpg[caption="", role="stretch-x"]
 
 ====
 
-== \\
+== !
 image::22-drzwi-jedi.png[caption="Only for Jedi", role="frame"]
 
 [NOTE]
@@ -559,7 +559,7 @@ image::22-drzwi-jedi.png[caption="Only for Jedi", role="frame"]
 * How it works - we see it on daily basis
 ====
 
-== \\
+== !
 image::24-android1.png[width=300]
 
 [NOTE]
@@ -571,7 +571,7 @@ image::24-android1.png[width=300]
 ** But at the same time it's a button. WTF??
 ====
 
-== \\
+== !
 image::24-android1.png[width=300]
 image::24-android2.png[width=287, role="pull-right"]
 
@@ -583,11 +583,11 @@ image::24-android2.png[width=287, role="pull-right"]
 ====
 
 
-== \\
+== !
 image::13-functions2.png[caption="Why? Oh Why?", role="frame"]
 
 [.source]
-== \\
+== !
 
 [source, java]
 .+BadBadSql.java+
@@ -617,7 +617,7 @@ public class Sql {
 ====
 
 [.source]
-== \\
+== !
 
 [source, java]
 ----
@@ -658,7 +658,7 @@ Now take this example
 * signifiers: or more, what it suggests
 ====
 
-== \\
+== !
 image::26-george-miller.jpg[role="frame", caption="George Miller"]
 
 [NOTE]
@@ -669,7 +669,7 @@ image::26-george-miller.jpg[role="frame", caption="George Miller"]
 * The Magical Number Seven, Plus or Minus Two: Some Limits on Our Capacity for Processing Information
 ====
 
-== \\
+== !
 image::27-liczydlo.jpg[role="frame"]
 
 [NOTE]
@@ -738,7 +738,7 @@ and be more *effective*
 * To teraz pomyślcie o sobie za pół roku z kodem który właście tworzycie. Jak chcecie się czuć. Decyzja jest wasza.
 ====
 
-== \\
+== !
 image::25-bruce-lee.png[caption="守破離", role="frame"]
 
 [NOTE]

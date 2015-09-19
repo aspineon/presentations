@@ -16,7 +16,7 @@ Jakub Marchwicki ; @kubem
 :idseparator: -
 :icons: font
 
-== \\
+== !
 
 [.statement]
 Not *only* clean code
@@ -32,7 +32,7 @@ Not *only* clean code
 ** In a way Mitnick reversed security through it's social aspects
 ====
 
-== \\
+== !
 image::05-comments.png[width=500]
 
 [NOTE]
@@ -43,7 +43,7 @@ image::05-comments.png[width=500]
 ** At least that's what I tought when I looked back my old code
 ====
 
-== \\
+== !
 image::06-comments-woohoo.png[width=573]
 
 [NOTE]
@@ -54,7 +54,7 @@ image::06-comments-woohoo.png[width=573]
 ** or looked up Guava (called Google Collections at that time)
 ====
 
-== \\
+== !
 image::10-uncle-bob.jpg[caption="I found Uncle Bob", role="frame"]
 
 [NOTE]
@@ -71,7 +71,7 @@ image::10-uncle-bob.jpg[caption="I found Uncle Bob", role="frame"]
 * I realized clean code wasn't on it's own. It was a result. *Not the cause*
 ====
 
-== \\
+== !
 image::11-kent-beck.jpg[caption="The Sourcerer", role="frame"]
 
 [NOTE]
@@ -86,7 +86,7 @@ image::11-kent-beck.jpg[caption="The Sourcerer", role="frame"]
 ** Kind of a-ha moment
 ====
 
-== \\
+== !
 image::15-like-a-boss.jpg[caption="", role="strech-x"]
 
 [NOTE]
@@ -100,13 +100,13 @@ image::15-like-a-boss.jpg[caption="", role="strech-x"]
 ====
 
  
-== \\
+== !
 image::19-on.jpg[caption="prettiness", role="frame"]
 
-== \\
+== !
 image::19-krzeslo.jpg[caption="aesthetics", role="frame"]
 
-== \\
+== !
 image::19-syrena.jpg[caption="design", role="frame"]
 
 [NOTE]
@@ -120,7 +120,7 @@ image::19-syrena.jpg[caption="design", role="frame"]
 ====
 
 
-== \\
+== !
 image::20-pudelko.jpg[caption="", role="stretch-x"]
 
 [NOTE]
@@ -142,7 +142,7 @@ a *quality* of an *object*, which *allows* an individual *to perform an action*.
 ____
 ====
 
-== \\
+== !
 image::21-affordance.jpg[caption="affordance for dummies", role="frame"]
 
 [NOTE]
@@ -152,7 +152,7 @@ image::21-affordance.jpg[caption="affordance for dummies", role="frame"]
 ** These suggestions are called signifiers
 ====
 
-== \\
+== !
 image::21-design-of-everyday-things.jpg[caption="", role="stretch-x"]
 
 [NOTE]
@@ -164,7 +164,7 @@ image::21-design-of-everyday-things.jpg[caption="", role="stretch-x"]
 
 ====
 
-== \\
+== !
 image::22-drzwi-jedi.png[caption="Only for Jedi", role="frame"]
 
 [NOTE]
@@ -173,7 +173,7 @@ image::22-drzwi-jedi.png[caption="Only for Jedi", role="frame"]
 * How it works - we see it on daily basis
 ====
 
-== \\
+== !
 image::24-android1.png[width=300]
 
 [NOTE]
@@ -185,7 +185,7 @@ image::24-android1.png[width=300]
 ** But at the same time it's a button. WTF??
 ====
 
-== \\
+== !
 image::24-android1.png[width=300]
 image::24-android2.png[width=287, role="pull-right"]
 
@@ -197,11 +197,11 @@ image::24-android2.png[width=287, role="pull-right"]
 ====
 
 
-== \\
+== !
 image::13-functions2.png[caption="Why? Oh Why?", role="frame"]
 
 [.source]
-== \\
+== !
 
 [source, java]
 .+BadBadSql.java+
@@ -231,7 +231,7 @@ public class Sql {
 ====
 
 [.source]
-== \\
+== !
 
 [source, java]
 ----
@@ -290,7 +290,7 @@ There is more
 * The Flow - when we find ourself within a highly challanging, engaging state of full immersion.
 ====
 
-== \\
+== !
 image::25-bruce-lee.png[caption="", role="frame"]
 
 
@@ -302,7 +302,7 @@ image::25-bruce-lee.png[caption="", role="frame"]
 ** Take away with you
 ====
 
-== \\
+== !
 image::25-bruce-lee.png[caption="Has Bruce Lee known kung-fu?", role="frame"]
 
 [NOTE]
