@@ -1,0 +1,45 @@
+buildscript {
+  dependencies {
+	classpath 'org.ysb33r.gradle:vfs-gradle-plugin:1.0-beta1'
+	classpath 'commons-httpclient:commons-httpclient:3.1'
+  }
+}
+
+plugins {
+	id 'org.asciidoctor.convert' version '1.5.2'
+	id 'com.github.jruby-gradle.base' version '0.1.5'
+}
+
+version = '1.0.0-SNAPSHOT'
+
+repositories {
+    jcenter()
+}
+
+
+subprojects {
+	apply plugin: 'com.github.jruby-gradle.base'
+	apply plugin: 'org.asciidoctor.convert'
+	apply plugin: 'org.ysb33r.vfs'	
+
+	dependencies {
+	    gems 'rubygems:slim:2.1.0'
+	    gems 'rubygems:asciidoctor-diagram:1.3.0'
+	}
+
+	asciidoctor {
+		dependsOn jrubyPrepareGems
+
+		sourceDir = file('src')
+
+		sources {
+			include '*.adoc'
+		}
+		
+		resources {
+			from (sourceDir) {
+				include 'images/**'
+			}
+		}
+	}
+}
