@@ -1,1 +1,8 @@
-include 'microservice-everything', 'characterization-tests', 'jee-without-hassle'
+include 'microservice-everything', 
+		'characterization-tests', 
+		'jee-without-hassle',
+		'jak-programowac',
+		'caught-in-an-iron-triangle',
+		'czego-nie-uczyli-na-studiach',
+		'jee-next',
+		'reverse-eng-clean-code'
