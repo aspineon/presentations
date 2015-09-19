@@ -1,6 +1,0 @@
-[submodule "asciidoctor-backends"]
-	path = asciidoctor-backends
-    url = https://github.com/kubamarchwicki/asciidoctor-backends
-[submodule "deck2pdf"]
-	path = deck2pdf
-	url = https://github.com/melix/deck2pdf

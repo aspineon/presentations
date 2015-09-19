@@ -7,7 +7,7 @@ My public presentations and speaking. Complete slide deck with asciidoctor Gemfi
 
 Execute:
 ....
-$ asciidoctor -b dzslides -T asciidoctor-backends/slim/dzslides slides.adoc
+gradle asciidoctor
 ....
 
 === Generating PDF
@@ -24,4 +24,8 @@ $ deck2pdf --profile=dzslides --width=954 --height=714 slides.html slides.pdf <1
 
 * Lato:400,700,400italic,700italic
 
+
+////
+TODO: https://gist.github.com/gscheibel/cb8d396b4cc7e2107016
+////
 
