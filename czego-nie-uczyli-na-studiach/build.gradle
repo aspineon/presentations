@@ -1,0 +1,32 @@
+ext {
+	dzslides = 'master'
+	asciidoctorBackends = 'master'
+	downloadDir = new File(buildDir,'download')
+	templateDir = new File(downloadDir,'templates')
+	dzslidesDir = new File(downloadDir,'dzslides')
+}
+
+task download << {
+	mkdir downloadDir
+
+	vfs {
+		cp "zip:https://github.com/asciidoctor/asciidoctor-backends/archive/${asciidoctorBackends}.zip!asciidoctor-backends-${asciidoctorBackends}",
+				templateDir, recursive:true, overwrite:true
+	}
+}
+
+
+asciidoctor {
+	dependsOn download	
+
+	resources {
+		from (sourceDir) {
+			include 'dzslides/**'
+			include 'images/**'
+		}
+	}
+
+	requires = ['tilt']
+	backends = ['dzslides']	
+	options template_dir: new File(templateDir,'slim').absolutePath
+}
