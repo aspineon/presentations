@@ -17,6 +17,17 @@ Jakub Marchwicki ; @kubem
 :idseparator: -
 :icons: font
 
+== !
+image::microservice-everywhere.jpeg[role="frame"]
+
+[NOTE]
+[role="speaker"]
+====
+* Now this sounds like this. 
+* When I've given this talk on 33degree2014 - that's was still different time
+* Don't be afraid - I've updated since then :)
+====
+
 [.topic]
 == Things to cover
 
@@ -30,8 +41,6 @@ Jakub Marchwicki ; @kubem
 [NOTE]
 [role="speaker"]
 ====
-* Who am I?
-* YDP - Education Publisher
 * Most of examples are from YDP experience
 ** But not all
 * I wasn't actually implementing many of those, unfortunately
@@ -40,6 +49,55 @@ Jakub Marchwicki ; @kubem
 ** I'm not my ideas
 ====
 
+== Who am I?
+
+image::logo-ydp.png[width=190, role="logo"]
+image::logo-bns.png[width=190, role="logo"]
+image::logo-symentis.png[width=190, role="logo"]
+
+
+Jakub Marchwicki
+....
+* Young Digital Planet (YDP)
+  A Digital Publishing in Education
+
+* I'm Chief Almighty Architect. Kind of
+
+* Trainer, consultant
+  https://bnsit.pl
+  https://symentis.pl
+
+* 10+ years in IT
+* Past 2 years in management
+** Gradually recovering
+
+* I don't claim these ideas perfect
+** They were good enough in context
+** I'm happy to discuss it and ritualy dissent them
+....
+
+
+[NOTE]
+[role="speaker"]
+====
+* Who am I?
+* YDP - Education Publisher
+====
+
+[.topic]
+== What makes a good micoservice talk?
+
+* CAP theorem
+* 8 Fallacies of Distributed Computing Explained
+* Bounded Context
+
+[NOTE]
+[role="speaker"]
+====
+* before I start
+* Consistence, Availability, Partition tolerance
+* Network is reliable, latency is zero, transport cost is zero, network is homegeneous
+====
 
 [.topic]
 == Agenda
@@ -59,7 +117,11 @@ Microservices are the +
 [NOTE]
 [role="speaker"]
 ====
-'First of all!'
+* 'First of all!'
+* Ale temat się powoli wysyca! To dobrze
+* Teraz będzie "implementing microservices"
+* Za dwa lata wrócimy "microservices - lessons learned"
+* I tak do Confitury'2020
 ====
 
 == !
@@ -116,12 +178,12 @@ Micro Service is an *architectural concept* that aims to decouple a solution by 
 == My personal definition
 
 [.incremental]
-* A small problem domain [detail]#Bounded Content might be the thing#
+* A small problem domain [detail]#Bounded Context might be the thing#
 * Built and deployed by itself [detail]#standalone and isolated#
 * Runs in its own process
 * Integrates via well-known interfaces + 
 [detail]#While HTTP isn’t always the best answer, it’s a damn fine first guess#
-* Owns its own data storage [detail]#ultimate goal#
+* Owns its own data [detail]#ultimate goal#
 
 [NOTE]
 [role="speaker"]
@@ -157,7 +219,7 @@ Micro Service is an *architectural concept* that aims to decouple a solution by 
 [role="speaker"]
 ====
 * Pointed out by Martin Odersky at GOTOchicago
-* Single Responsibility Principle  taken to an extreme
+* Single Responsibility Principle taken to an extreme
 ====
 
 
@@ -172,17 +234,21 @@ Micro Service is an *architectural concept* that aims to decouple a solution by 
 * 15 years since the concept of Service Oriented Architecture
 * significant changes in the way we think about architecture
 ** ESB is not always SOA - when the sevices are deeply coupled in a non visible way
+* And afterall - are we facing same SOA challanges
+** SOA Governance?
+** Service discoverability?
 ====
 
 == !
 [.statement]
-*Aggregates* and bounded *Contexts* give us a great way of breaking up a domain
+*Bounded Ctx* + 
+gives us a great way of breaking up a domain
 
 [NOTE]
 [role="speaker"]
 ====
 * Eric Evan’s - Domain Driven Design
-* things evangelised by Slawek Sobotka, Piotr Wyczesany - at least during last two days in here
+* things evangelised by Slawek Sobotka, Piotr Wyczesany 
 * Service interface between each context
 * ensure a service is responsible for an aggregate root and all of it’s child domain objects
 ====
@@ -191,19 +257,34 @@ Micro Service is an *architectural concept* that aims to decouple a solution by 
 [.statement]
 *REST* style interfaces and *JSON* as a data interchange
 
+[NOTE]
+[role="speaker"]
+====
+* And after that we struggle to document these services
+** Swagger, RAML?
+* We build contract first (on REST)
+** With consumer driven contracts
+* We want lightweight but with the same control
+** And we start with JSONSchema to design the services
+** Yes, we've seen that
+====
+
+
 == !
 [.statement]
-Build *web services* +  
+*web services* with + 
+*micro tools*
 [.pull-right]#easier than ever# 
-with *micro frameworks*
 
 [NOTE]
 [role="speaker"]
 ====
+* Marketing? Or is it really something?
 * In JAVA world count: 
-** Simple embedded Jetty, 
-** Spark, Webbit, Dropwizard
-** Vert.x, Spring Boot
+** Simple embedded Jetty, Spark, Webbit, Dropwizard, Vert.x, Spring Boot
+* SOA is old, big bloated, corporate, 
+** Eclipse based drag and drop (Mule IDE, Active VOS, WSO2 IDE)
+* Now we build pretty much the same - but through code? Right?
 ====
 
 [.topic]
@@ -239,7 +320,7 @@ with *micro frameworks*
 * don't touch it approach [detail]#as if you meant it#
 * write a small service that does what's needed +
 [detail]#instead of diving into legacy system#
-* an architecture evolution
+* evole the architecture
 
 [NOTE]
 [role="speaker"]
@@ -341,6 +422,11 @@ ____
 * *How I cared?*
 * Was it worth doing?
 
+[NOTE]
+[role="speaker"]
+====
+* some example from my real life projects
+====
 
 [.topic.recap]
 == Exibit A
@@ -733,9 +819,6 @@ People are reluctant to *throw away* a multimillion *investment*
 * Initially each "old stuff" was the complete application
 ====
 
-== !
-image::nonsense.jpg[caption="SRSLY??", role="frame"]
-
 [.topic]
 == Run this through me again
 
@@ -763,126 +846,6 @@ Refactor *architecture* with same mindset as *code*
 * We are still working with this. *work* or rather refactor *in progress*
 ====
 
-[.topic.recap]
-== Exibit D
-
-[.statement.pull-right]
-ActiveX [detail]#from 2002# as a Service [detail]#-- 2014#
-
-[NOTE]
-[role="speaker"]
-====
-* This is a real core. For the true ninjas
-====
-
-[role="terminal"]
-== !
-
-....
-
-     ++------------++                                                                     
-    +-|            |-+                                                                    
-+-+----------------+-+-------------------------------------------------------------+-----+
-| <-+ | http://some.important.url.com                                              |     |
-|     +----------------------------------------------------------------------------+     |
-|                                                                                        |
-|                                                                                        |
-|      +----------------------------+            +-------------------------+             |
-|      |                            |            |                         |             |
-|      |         UI Component       |            | +--------------------+  |             |
-|      |    (Flash / Java Applet)   |            | |                    |  |             |
-|      |                            |            | | Active X component |  |             |
-|      |                            +--------->  | |                    |  |             |
-|      |                            |            | +--------------------+  |             |
-|      |    > []    record sound    |  <---------+                         |             |
-|      |                            |            |     JavaScript bindings |             |
-|      |                            | JavaScript |                         |             |
-|      +----------------------------+    magic   +-------------------------+             |
-|                                                                                        |
-|                                                                                        |
-|                                                                                        |
-|                                                                                        |
-|                                                                                        |
-|                                                                                        |
-|                                                                                        |
-+----------------------------------------------------------------------------------------+
-....
-
-[NOTE]
-[role="speaker"]
-====
-* Imagine situation like this
-* Some UI components working together with ActiveX things
-* Installed on the browser side
-* ActiveX was a C-plus-plus wrapper around C-plus-plus library for sound processing
-* Worked fine on Windows / until IE8 - and than stopped
-* Few applications were quite heavily dependent on (on the ActiveX API) 
-====
-
-
-[.topic]
-== Business driver
-
-[.middle]
-Go beyond Internet Explorer 8
-
-[.topic]
-== What if's?
-
-[.incremental]
-* the same library would work as a service
-* it was a REST web service
-* there was no C++ web server
-* there was no way anyone would write C++
-* we used more developer friendly language
-
-[role="terminal"]
-== !
-....
-
-     ++------------++                                                                        
-    +-|            |-+                                                                       
-+-+----------------+-+-------------------------------------+--+        +-------------------+
-| <-+ | http://some.important.url.com                      |  |        |                   |
-|     +----------------------------------------------------+  |        |  +-------------+  |
-|                                                             |        |  |             |  |
-|    +-----------------------+            +------------+      |        |  | ActiveX     |  |
-|    |                       |            |            |      |        |  | components  |  |
-|    |      UI Component     |            | JavaScript |      |        |  |             |  |
-|    | (Flash / Ja^a Applet) |            | components |      |        |  +-------------+  |
-|    |                       |            |            |      |  http  |                   |
-|    |                       +--------->  |            +-------------> |  REST webservice  |
-|    |                       |            |            |      |        |                   |
-|    | ^ []    record sound  |  <---------+            |      |        +-------------------+
-|    |                       |            |            |      |                              
-|    |                       | JavaScript |            |      |                              
-|    +-----------------------+    magic   +------------+      |                              
-|                                                             |                              
-|                                                             |                              
-|                                                             |                              
-|                                                             |                              
-|                                                             |                              
-+-------------------------------------------------------------+                              
-....
-
-[NOTE]
-[role="speaker"]
-====
-* Externalized sound component
-* Wrapped in Python win32com (as that was purely windows library)
-** We were considering node.js native bindings, but went for python
-* Wrap the C++ library and expose with REST webservice
-** Tornado was the choice
-** It's nonblocking I/O was somehow similar to node's idea
-* Surprise surprise - it worked
-====
-
-
-[.topic.recap.red-border]
-== Note to self
-
-[.statement]
-Damn! That was just *crazy* but it *worked*
 
 [.topic]
 == Agenda
@@ -896,7 +859,8 @@ Damn! That was just *crazy* but it *worked*
 == !
 
 [.statement]
-Still *don't* know
+Still *don't* know +
+[detail]#/me 2014#
 
 [NOTE]
 [role="speaker"]
@@ -908,6 +872,43 @@ Still *don't* know
 ** In many cases it's a component cased architecture
 ====
 
+== !
+
+[.statement]
+Hey! *deployment* +
+ and *scalability*?? +
+[detail]#/me 2015#
+
+
+[NOTE]
+[role="speaker"]
+====
+* I've by passed that in a subtle way
+* If there are many services how to 
+** deploy them
+** monitor them
+** discover them
+* manual monitoring + excel spreadsheet? 
+====
+
+[.topic]
+== Agenda
+
+* What is microservice?
+* Why bother?
+* Why I cared?
+* How I cared?
+* *Was it worth doing?*
+
+[.topic]
+== Agenda
+
+* What is microservice?
+* Why bother?
+* Why I cared?
+* How I cared?
+* [strike]#Was it worth doing?#
+* *Get more practical!*
 
 [role="terminal"]
 == !
@@ -940,6 +941,15 @@ Still *don't* know
 
 ....
 
+[NOTE]
+[role="speaker"]
+====
+* that doesnt really work for YDP context. 
+* we dont have a single platform 
+** not a one solution
+** multiple deployments (sometimes on premises - at customers)
+* we build our own product - but we not always operate it
+====
 
 [role="terminal"]
 == !
@@ -947,29 +957,30 @@ Still *don't* know
 ....
 
 
-       +----------------------------------+      +--------------------------------+                              
-       |                                  |      |                 ++             |
-       |  +--------------------+  +----+  |      |        +---+    ++             |
-       |  |                    |  |    |  |      |        |   |                   |
-       |  |                    |  |    |  |      |        |   |  +--------+       |
-       |  +--------------------+  |    |  |      |        +---+  |        |       |
-       |                          |    |  |      |               |        |       |
-       |  +-----+  +-----+ +---+  |    |  |      |     +-+       |        |       |
-       |  |     |  |     | |   |  |    |  |      |     +-+  +-+  +--------+       |
-       |  |     |  |     | |   |  |    |  |      |          +-+                   |
-       |  +-----+  +-----+ +---+  |    |  |      |  +----+           +--+         |
-       |                          |    |  |      |  |    |  +----+   |  |         |
-       |  +--------------------+  |    |  |      |  +----+  |    |   +--+  +--+   |
-       |  |                    |  |    |  |      |          |    |         |  |   |
-       |  |                    |  |    |  |      |     +-+  +----+         +--+   |
-       |  +--------------------+  +----+  |      |     +-+          +---+         |
-       |                                  |      |                  |   |         |
-       |                                  |      |                  +---+         |
-       +----------------------------------+      +--------------------------------+
+       +--------------------------------+                                       
+       |                 ++             |                           ++         
+       |        +---+    ++             |                  +---+    ++          
+       |        |   |                   |                  |   |                
+       |        |   |  +--------+       |                  |   |  +--------+    
+       |        +---+  |        |       |                  +---+  |        |    
+       |               |        |       |                         |        |    
+       |     +-+       |        |       |               +-+       |        |    
+       |     +-+  +-+  +--------+       |               +-+  +-+  +--------+    
+       |          +-+                   |                    +-+                
+       |  +----+           +--+         |            +----+           +--+      
+       |  |    |  +----+   |  |         |            |    |  +----+   |  |      
+       |  +----+  |    |   +--+  +--+   |            +----+  |    |   +--+  +--+
+       |          |    |         |  |   |                    |    |         |  |
+       |     +-+  +----+         +--+   |               +-+  +----+         +--+
+       |     +-+          +---+         |               +-+          +---+      
+       |                  |   |         |                            |   |      
+       |                  +---+         |                            +---+      
+       +--------------------------------+                                       
+
                                                                         
                                                                         
-              Monolythic / layered                      Something in between 
-                                                           (components ?)    
+              Something in between                          Microservices
+                 (components ?)    
 
 ....
 
@@ -980,6 +991,31 @@ Still *don't* know
 * easier to spoil, couple elements through internal calls
 ** HTTP is pretty ruthless - you can't bypass
 ** You can call different component within 
+* we use microservices goodies for development
+* not so much for deployment
+====
+
+== !
+
+[.statement]
+Have a *cookie* +
+[.pull-right]#and eat a *cookie*??#
+
+[.topic]
+== What if?
+
+[.incremental]
+* each services runs its own process? [detail]#JVM#
+* deployed independently [detail]#if needed#
+* talks with other through HTTP? [detail]#or some message bus#
+* covers small domain problem [detail]#IAM, results, content#
+
+[NOTE]
+[role="speaker"]
+====
+* I'm in educational domain
+** Learning applications
+* Does it stand the definition of a microservices?
 ====
 
 == !
@@ -996,6 +1032,136 @@ ____
 ** Awareness, code reviews and inspections are important
 ====
 
+== !
+
+[.small.quote, Joe Wales]
+____
+Golang is a language I don't particularly enjoy coding, but deployment is painless: single static linked executable. No external dependencies on runtime.
+____
+
+
+[.topic]
+== What if I use Vert.X?
+
+[.incremental]
+* build services as modules
+* deploy independently [detail]#or together#
+* communicate over event bus calls [detail]#RPC style#
+* decouple frontend (JS) and backend [detail]#HTTP calls#
+
+
+[role="terminal"]
+== !
+
+....
+
+
+
+
+
+
+    +--------------------------------------------+                      
+    |                                            |        Frontend           
+    |                                            |        application        
+    +--------------------------------------------+                      
+                                                                    
+        +--------------+   +---------------+                              
+        |              |   |               |              Application logic  
+        |              |   |               |                              
+        +--------------+   +---------------+                              
+                                                                    
+    +--------------------------------------------+                      
+    |                                            |        Event              
+    |                                            |        Bus                
+    +--------------------------------------------+                      
+                                                                    
+        +------+  +------+  +------+ +------+                           
+        |      |  |      |  |      | |      |             Generic components 
+        |      |  |      |  |      | |      |             Reused between apps
+        +------+  +------+  +------+ +------+                           
+
+....
+
+[NOTE]
+[role="speaker"]
+====
+* 6-8 generic services per application (fully reused)
+* app logic, depends on app logic (little reuse)
+* different API principles on every layer
+
+====
+
+[role="terminal"]
+== !
+
+....
+
+
+
+
+
+
+    +--------------------------------------------+                      
+    |                                            |                   
+    |                                            |              
+    +--------------------------------------------+                      
+                                                                    
+        +--------------+   +---------------+                              
+        |              |   |               |              HTTP 
+        |              |   |               |              REST Level ??                
+        +--------------+   +---------------+                              
+                                                                    
+    +--------------------------------------------+                      
+    |                                            |        RPC Communication              
+    |                                            |        Action based                
+    +--------------------------------------------+                      
+                                                                    
+        +------+  +------+  +------+ +------+                           
+        |      |  |      |  |      | |      |             Vert.X service proxy
+        |      |  |      |  |      | |      |             
+        +------+  +------+  +------+ +------+                           
+
+....
+
+[NOTE]
+[role="speaker"]
+====
+* each level covers different API
+* with different guiding principles
+====
+
+== APIs
+
+* Internal API + 
+[detail]#RPC style, eventbus communication#
+* Web API +
+[detail]#Over HTTP call with frontend#
+* External API +
+[detail]#the true RESTafarian#
+
+[NOTE]
+[role="speaker"]
+====
+* Internal API
+** SOA, RPC guiding principles
+** Independence, CorrelationId, standardized API
+* WebAPI: 
+** Described in the language of appication (stream vs container)
+* External
+** Secure / encrypt, Versioned, Self documenting
+====
+
+== !
+
+[.statement]
+What about *deployment*?
+
+== !
+
+* Deployment must take 5 minutes [detail]#autoprovision#
+* Each node holds whole application [detail]#network isn't reliable#
+* Replica storage 
+* Nodes don't know about each other 
 
 == !
 
@@ -1010,12 +1176,9 @@ ____
 * Monitoring beyond Naigos
 ** We are still not very good in it, still learing
 * Business metrics are very hard to grasp with *business at the other side of the wall*
+* We are using our Metrics. Initially own implementation
+** Now we look into vertx3 and their implementation.
 ====
-
-== !
-
-[.statement]
-But we are still *trying*
 
 [.topic.ending, hrole="name"]
 == Questions?
@@ -1029,7 +1192,7 @@ But we are still *trying*
 
 [.middle]
 ----
-http://speakerdeck.com/kubamarchwicki/microservice-everything
+http://speakerdeck.com/kubamarchwicki/microservice-everything-wjug
 
 Follow me on twitter:
   @kubem

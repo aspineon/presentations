@@ -1,0 +1,467 @@
+= Microservice everything 
+Jakub Marchwicki ; @kubem 
+:longform:
+:sectids!:
+:imagesdir: images
+:source-highlighter: highlightjs
+:language: no-highlight
+:dzslides-aspect: 16-9
+:dzslides-style: stormy-jm
+:dzslides-transition: fade
+:dzslides-fonts: family=Yanone+Kaffeesatz:400,700,200,300&family=Cedarville+Cursive
+:dzslides-highlight: monokai
+:experimental:
+:toc2:
+:sectanchors:
+:idprefix:
+:idseparator: -
+:icons: font
+
+== !
+image::microservice-everywhere.jpeg[role="frame"]
+
+[NOTE]
+[role="speaker"]
+====
+* Now this sounds like this. 
+* When I've given this talk on 33degree2014 - that's was still different time
+* Don't be afraid - I've updated since then :)
+====
+
+
+[.topic]
+== What makes a good micoservice talk?
+
+* CAP theorem
+* 8 Fallacies of Distributed Computing Explained
+* Conway Law
+* Bounded Context
+
+[NOTE]
+[role="speaker"]
+====
+* before I start
+* Consistence, Availability, Partition tolerance
+* Network is reliable, latency is zero, transport cost is zero, network is homegeneous
+====
+
+== What is microservice?
+
+[.statement]
+Microservices are the +
+[pull-right]#*new black*#
+
+[NOTE]
+[role="speaker"]
+====
+* 'First of all!'
+* Ale temat się powoli wysyca! To dobrze
+* Teraz będzie "implementing microservices"
+* Za dwa lata wrócimy "microservices - lessons learned"
+* I tak do Confitury'2020
+====
+
+== !
+
+[.middle]
+Micro Service is an *architectural concept* that aims to decouple a solution by decomposing functionality into discrete services +
+[detail]#with communication over lightweight mechanisms, often an HTTP API#
+
+[NOTE]
+[role="speaker"]
+====
+* this means everything
+* maybe a diagram will go better
+====
+
+[role="terminal"]
+== !
+
+....
+
+
+
+       +----------------------------------+                                    
+       |                                  |                        ++          
+       |  +--------------------+  +----+  |               +---+    ++          
+       |  |                    |  |    |  |               |   |                
+       |  |                    |  |    |  |               |   |  +--------+    
+       |  +--------------------+  |    |  |               +---+  |        |    
+       |                          |    |  |                      |        |    
+       |  +-----+  +-----+ +---+  |    |  |            +-+       |        |    
+       |  |     |  |     | |   |  |    |  |            +-+  +-+  +--------+    
+       |  |     |  |     | |   |  |    |  |                 +-+                
+       |  +-----+  +-----+ +---+  |    |  |         +----+           +--+      
+       |                          |    |  |         |    |  +----+   |  |      
+       |  +--------------------+  |    |  |         +----+  |    |   +--+  +--+
+       |  |                    |  |    |  |                 |    |         |  |
+       |  |                    |  |    |  |            +-+  +----+         +--+
+       |  +--------------------+  +----+  |            +-+          +---+      
+       |                                  |                         |   |      
+       +----------------------------------+                         +---+      
+                                                                        
+                                                                        
+              Monolythic / layered                           Microservice      
+
+....
+
+[NOTE]
+[role="speaker"]
+====
+* We are talking about scattered services, loosely coupled with HTTP calls
+====
+
+[.topic]
+== My personal definition
+
+[.incremental]
+* A small problem domain [detail]#Bounded Context might be the thing#
+* Built and deployed by itself [detail]#standalone and isolated#
+* Runs in its own process
+* Integrates via well-known interfaces + 
+[detail]#While HTTP isn’t always the best answer, it’s a damn fine first guess#
+* Owns its own data [detail]#ultimate goal#
+
+[NOTE]
+[role="speaker"]
+====
+* Obviously much depend on context
+** Own data might not always be the case (with legacy systems)
+* Lot has been said about decoupled services during this conference
+** Reactive, vert.x, dropwizard, etc
+** I think tthat gives you a certain feeling what's the buzz
+====
+
+[.topic]
+== Why bother? Modularity at all levels
+
+[.incremental]
+* Function 
+* Object 
+* Class 
+* Actor 
+* Stream transform 
+* *Microservice* 
+
+[NOTE]
+[role="speaker"]
+====
+* Pointed out by Martin Odersky at GOTOchicago
+* Single Responsibility Principle taken to an extreme
+====
+
+
+== !
+[.statement]
+*SOA* done right?
+
+[NOTE]
+[role="speaker"]
+====
+* Is it kind of SOA done right?
+* 15 years since the concept of Service Oriented Architecture
+* significant changes in the way we think about architecture
+** ESB is not always SOA - when the sevices are deeply coupled in a non visible way
+* And afterall - are we facing same SOA challanges
+** SOA Governance?
+** Service discoverability?
+====
+
+== !
+[.statement]
+*Bounded Ctx* + 
+gives us a great way of breaking up a domain
+
+[NOTE]
+[role="speaker"]
+====
+* Eric Evan’s - Domain Driven Design
+* things evangelised by Slawek Sobotka, Piotr Wyczesany 
+* Service interface between each context
+* ensure a service is responsible for an aggregate root and all of it’s child domain objects
+====
+
+== !
+[.statement]
+*REST* style interfaces and *JSON* as a data interchange
+
+[NOTE]
+[role="speaker"]
+====
+* And after that we struggle to document these services
+** Swagger, RAML?
+* We build contract first (on REST)
+** With consumer driven contracts
+* We want lightweight but with the same control
+** And we start with JSONSchema to design the services
+** Yes, we've seen that
+====
+
+
+== !
+[.statement]
+*web services* with + 
+*micro tools*
+[.pull-right]#easier than ever# 
+
+[NOTE]
+[role="speaker"]
+====
+* Marketing? Or is it really something?
+* In JAVA world count: 
+** Simple embedded Jetty, Spark, Webbit, Dropwizard, Vert.x, Spring Boot
+* SOA is old, big bloated, corporate, 
+** Eclipse based drag and drop (Mule IDE, Active VOS, WSO2 IDE)
+* Now we build pretty much the same - but through code? Right?
+====
+
+[.topic]
+== Some problems with monolythic architecture
+
+[.middle.incremental]
+* Even when layered, hidden coupling
+* Single runtime, allows in memory calls
+* FUD: if it works don't fix it [detail]#don't touch it# 
+* Good diagrams not always make it to good code
+
+[NOTE]
+[role="speaker"]
+====
+* I know this might not always be true
+** Though it usually happens
+====
+
+
+[.topic]
+== The beshitted legacy system 
+
+[.middle.incremental]
+* don't touch it approach [detail]#as if you meant it#
+* write a small service that does what's needed +
+[detail]#instead of diving into legacy system#
+* evole the architecture
+
+[NOTE]
+[role="speaker"]
+====
+* Working with legacy code is risky at best
+* We all know it
+====
+
+== !
+[.small.quote, Fred Brooks, The Mythical Man-Month]
+____
+Problems of developing software derive from essential complexity and its nonlinear increases with size; leading to difficulty of communication among team members, cost overruns, schedule delays.
+____
+
+[NOTE]
+[role="speaker"]
+====
+* If your program get longer, it take more time to develop
+* I'm not talking about the *product flaws* it can cause. Leave it out of scope for the time being
+* You think you need more people
+** But you can't get around by hiring more people
+** Because beyond a certain size new hires are actually a net lose
+* Keeping things micro is a way for me to limit the size 
+====
+
+[.topic.recap.red-border]
+== Takeaway
+
+[.statement]
+Separate things that change with a +
+*different pace*
+
+[NOTE]
+[role="speaker"]
+====
+* That was my first outcome
+====
+
+[.topic.recap.red-border]
+== Takeaway
+
+[.statement]
+The is no such thing as legacy +
+If noone use it - abandon it + 
+If you can't - it's business as usual + 
+[pull-right]#*cope with it!*#
+
+[NOTE]
+[role="speaker"]
+====
+* My second outcome.
+* If there was no way to fight them - join them 
+* If we build the system in such a way - we are unable to change it - we are definatelly fucked!
+====
+
+[.topic.recap.red-border]
+== Takeaway
+[.statement]
+If you get the mindset +
+*everything is a* +
+[pull-right]#*service*# +
+just not always very micro
+
+[NOTE]
+[role="speaker"]
+====
+* That brings me to another example
+* Depending on your definition, what is microservice
+** How micro should be the service
+** Or size doesnt matter - but responsibility
+* If you bound the context, aggregate - is it enough for microservice
+====
+
+[.topic]
+== Get more practical?!?!?!
+
+* How to package?
+* How to deploy?
+* How to scale?
+* How to orchestrate?
+* How to monitor?
+* How to discover?
+
+[NOTE]
+[role="speaker"]
+====
+* Are we going to throw 20+ services on our operations??
+====
+
+
+[role="terminal"]
+== !
+
+....
+
+
+       +----------------------------------+                                    
+       |                                  |                        ++          
+       |  +--------------------+  +----+  |               +---+    ++          
+       |  |                    |  |    |  |               |   |                
+       |  |                    |  |    |  |               |   |  +--------+    
+       |  +--------------------+  |    |  |               +---+  |        |    
+       |                          |    |  |                      |        |    
+       |  +-----+  +-----+ +---+  |    |  |            +-+       |        |    
+       |  |     |  |     | |   |  |    |  |            +-+  +-+  +--------+    
+       |  |     |  |     | |   |  |    |  |                 +-+                
+       |  +-----+  +-----+ +---+  |    |  |         +----+           +--+      
+       |                          |    |  |         |    |  +----+   |  |      
+       |  +--------------------+  |    |  |         +----+  |    |   +--+  +--+
+       |  |                    |  |    |  |                 |    |         |  |
+       |  |                    |  |    |  |            +-+  +----+         +--+
+       |  +--------------------+  +----+  |            +-+          +---+      
+       |                                  |                         |   |      
+       |                                  |                         +---+
+       +----------------------------------+                        
+                                                                        
+                                                                        
+              Monolythic / layered                           Microservice      
+
+....
+
+[NOTE]
+[role="speaker"]
+====
+* that doesnt really work for YDP context. 
+* we dont have a single platform 
+** not a one solution
+** multiple deployments (sometimes on premises - at customers)
+* we build our own product - but we not always operate it
+====
+
+[role="terminal"]
+== !
+
+....
+
+
+       +--------------------------------+                                       
+       |                 ++             |                           ++         
+       |        +---+    ++             |                  +---+    ++          
+       |        |   |                   |                  |   |                
+       |        |   |  +--------+       |                  |   |  +--------+    
+       |        +---+  |        |       |                  +---+  |        |    
+       |               |        |       |                         |        |    
+       |     +-+       |        |       |               +-+       |        |    
+       |     +-+  +-+  +--------+       |               +-+  +-+  +--------+    
+       |          +-+                   |                    +-+                
+       |  +----+           +--+         |            +----+           +--+      
+       |  |    |  +----+   |  |         |            |    |  +----+   |  |      
+       |  +----+  |    |   +--+  +--+   |            +----+  |    |   +--+  +--+
+       |          |    |         |  |   |                    |    |         |  |
+       |     +-+  +----+         +--+   |               +-+  +----+         +--+
+       |     +-+          +---+         |               +-+          +---+      
+       |                  |   |         |                            |   |      
+       |                  +---+         |                            +---+      
+       +--------------------------------+                                       
+
+                                                                        
+                                                                        
+              Something in between                          Microservices
+                 (components ?)    
+
+....
+
+[NOTE]
+[role="speaker"]
+====
+* easier to handle by operations
+* easier to spoil, couple elements through internal calls
+** HTTP is pretty ruthless - you can't bypass
+** You can call different component within 
+* we use microservices goodies for development
+* not so much for deployment
+====
+
+== !
+
+[.statement]
+Have a *cookie* +
+[.pull-right]#and eat a *cookie*??#
+
+[.topic]
+== What if?
+
+[.incremental]
+* each services runs its own process? [detail]#JVM#
+* deployed independently [detail]#if needed#
+* talks with other through HTTP? [detail]#or some message bus#
+* covers small domain problem [detail]#IAM, results, content#
+
+[NOTE]
+[role="speaker"]
+====
+* I'm in educational domain
+** Learning applications
+* Does it stand the definition of a microservices?
+* We don't need to setup and maintain sets of services to support our business. We need a repeatable way to support other businesses.
+* From micto what is important for us:
+** resiliance, elastic
+** gives responsive, message driven - the reactive manifesto
+====
+
+== !
+
+[.small.quote, Joe Wales]
+____
+Golang is a language I don't particularly enjoy coding, but deployment is painless: single static linked executable. No external dependencies on runtime.
+____
+
+[.topic]
+== What if I use Vert.X?
+
+[.incremental]
+* build services as modules
+* deploy independently [detail]#or together#
+* communicate over event bus calls [detail]#RPC style#
+* decouple frontend (JS) and backend [detail]#HTTP calls#
+
+[.topic]
+== Challenges?
+
+* APIs (external, web, external)
+* Versioning generic services
+* Consumer driven contracts
+* Scaling individual services (behind event bus)
