@@ -22,14 +22,7 @@ subprojects {
 	apply plugin: 'org.asciidoctor.convert'
 	apply plugin: 'org.ysb33r.vfs'	
 
-	dependencies {
-	    gems 'rubygems:slim:2.1.0'
-	    gems 'rubygems:asciidoctor-diagram:1.3.0'
-	}
-
 	asciidoctor {
-		dependsOn jrubyPrepareGems
-
 		sourceDir = file('src')
 
 		sources {
@@ -42,4 +35,12 @@ subprojects {
 			}
 		}
 	}
+}
+
+asciidoctor {
+	dependsOn jrubyPrepareGems
+}
+
+dependencies {
+    gems 'rubygems:slim:2.1.0'
 }
