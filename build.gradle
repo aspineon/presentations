@@ -36,11 +36,3 @@ subprojects {
 		}
 	}
 }
-
-asciidoctor {
-	dependsOn jrubyPrepareGems
-}
-
-dependencies {
-    gems 'rubygems:slim:2.1.0'
-}
