@@ -15,6 +15,11 @@ task download << {
 	}
 }
 
+download {
+	description "Download extra template resources"
+	outputs.dir templateDir
+}
+
 
 asciidoctor {
 	dependsOn download	
